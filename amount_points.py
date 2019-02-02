@@ -6,4 +6,6 @@ def points(games):
         count += 3 if int(x[0]) > int(x[2]) else abs(bool(int(x[2])-int(x[0]))-1)
     return count
 
+# points=lambda Q:sum(3*(V[0]>V[2])+(V[0]==V[2])for V in Q)
+
 print(points(games))
