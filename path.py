@@ -8,7 +8,7 @@
 # to the target can be represented as a fully horizontal/vertical line.
 
 
-
+# TODO unfinished !
 
 def p(start, target):
     xs_ys = tuple(zip(start, target))
