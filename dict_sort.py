@@ -24,3 +24,28 @@ for val in sorted(_dict.values(), key=lambda x: len(x)):
 	for kv in _dict.keys():
 		if _dict[kv] == val:
 			print (kv, " ", val)
+			
+# II part expert		
+D = {'a': 1, 'g': 4, 'f': 2, 'd': 5, 'b': 3, 'e': 2, 'c': 4}
+
+print(D)
+print(sorted(D.keys()))
+print(sorted(D.values()))
+
+
+# сортировка по ключу
+print({k: D[k] for k in sorted(D.keys())})
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: x[0])})
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: x[0], reverse=True)})
+
+# сортировка по значению
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: x[1])})
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: x[1], reverse=True)})
+
+# сортировка по значению, затем по ключу
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: (x[1], x[0]))})
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: (x[1], x[0]), reverse=True)})
+
+# сортировка по ключу, затем по значению
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: (x[0], x[1]))})
+print({k[0]: k[1] for k in sorted(D.items(), key=lambda x: (x[0], x[1]), reverse=True)})
