@@ -7,11 +7,12 @@ class Base():
     
     def setage(self, val):
         self._age = val
-
+    
+    #              getter  setter  delete doc
     age = property(getage, setage, None, None)
 
 x = Base()
-print(x.age)
+print(x.age)   # None
 x.age = 43
-print(x.age)
-print(x.name)
+print(x.age)   # 43
+
