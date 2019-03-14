@@ -1,5 +1,9 @@
 class Descriptor:
+   
     def __get__(self, instance, owner):
+        # self - instance of Descriptor
+        # instance - instance of Base
+        # owner - class Base
         print(self, instance, owner, sep="\n")
         
 class Base:
