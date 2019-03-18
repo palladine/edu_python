@@ -1,3 +1,33 @@
+''' @decorator
+    def base(arg):
+     ...
+
+    base(100)
+
+      эквивалентно
+
+    def base(arg):
+     ...
+
+    base = decorator(base)
+    base(100)
+'''
+
+
+''' @decorator
+    class Base:
+     ...
+    x = Base(100)
+
+      эквивалентно
+
+    class Base:
+     ...
+    Base = decorator(Base)
+    x = Base(100)
+'''
+
+
 # function - decorator
 def func_decorator(func):
     def in_func(*args):
