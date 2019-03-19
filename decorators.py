@@ -54,3 +54,47 @@ def nfunc(*args):
     print(sum(args))
 
 nfunc(3, 4, 5)
+
+
+
+
+
+
+#####  С атрибутами экземпляра класса ######
+class base():
+    def __init__(self, func):
+        self.calls = 0
+        self.func = func
+
+    def __call__(self, *args, **kwargs):    # Вызов при обращении
+        self.calls += 1
+        print('calls - {}, function - {}'.format(self.calls, self.func.__name__))
+        return self.func(*args, **kwargs)
+
+@base
+def func(a, b, c):    # func = base(func)
+    print(a + b + c)
+
+@base
+def func2(a, b):      # func2 = base(func2)
+    print(a * b)
+
+func(3, 4, 5)    # base.__call__
+func(4, 5, 6)
+
+func2(3, 3)
+func2(5, 5)
+#############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
