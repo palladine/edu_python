@@ -5,20 +5,29 @@
 # Подробнее: http://company.yandex.ru/job/vacancies/dev_python_mysql.xml
 
 
-L1 = [1, 2, 3, 4, 5, 6]
-L2 = ["a", "b", "c", "d", "e"]
+import itertools
 
-#function 1
-def cr_dic(l1, l2):
-    if len(l1) > len(l2):
-        for n in range(len(l2), len(l1)):
-            L2.append(None)
-    return {k: v for k, v in zip(l1, l2) if k is not None}
+L1 = [1, 2, 3, 4, 5, 6]   # key
+L2 = ["a", "b", "c"]   # val
 
-#functon 2
-def cr_dic2(l1, l2):
-    return dict(zip(l1, l2)) if (len(l2) <= len(l1)) else dict(map(None, l1, l2))
+M1 = [1, 2, 3, 4, 5, 6]   # key
+M2 = ["a", "b", "c", "d", "e", "f", "g", "h"]   # val
 
 
-print("cr_dic:   ", cr_dic(L1, L2))
-print("cr_dic2:  ", cr_dic2(L1, L2))
+# function 1
+def create_dict(list1, list2):
+    return dict(itertools.zip_longest(list1, list2)) if len(list1) >= len(list2) else dict(zip(list1, list2))
+
+
+# function 2 without itertools
+def create_dict2(list1, list2):
+    tmp_list = list2[:]
+    if len(list1) > len(list2):
+        tmp_list.extend([None]*(len(list1) - len(list2)))
+    return {k: v for k, v in zip(list1, tmp_list)}
+
+print(create_dict(L1, L2))
+print(create_dict(M1, M2))
+
+print(create_dict2(L1, L2))
+print(create_dict2(M1, M2))
